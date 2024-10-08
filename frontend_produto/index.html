@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerenciamento de Produtos</title>
+</head>
+<body>
+    <h1>Gerenciamento de Produtos</h1>
+    <div id="produto-form">
+        <input type="hidden" id="id">
+        <input type="text" id="nome" placeholder="Nome do Produto">
+        <input type="number" id="preco" placeholder="Preço do Produto">
+        <button onclick="adicionarOuAtualizarProduto()">Salvar Produto</button>
+        <button onclick="cancelarEdicao()" id="cancelar-btn" style="display:none;">Cancelar</button>
+    </div>
+    <h2>Lista de Produtos</h2>
+    <table id="produtos-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#produto-form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#produto-form input {
+    padding: 10px;
+    margin: 5px;
+}
+
+#produto-form button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#produtos-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#produtos-table th, #produtos-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#produtos-table th {
+    background-color: #f4f4f4;
+}
