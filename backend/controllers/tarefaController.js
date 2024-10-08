@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/editar/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const tarefa = await TarefaService.ObtemElementoUnicoId(id);

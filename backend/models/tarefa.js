@@ -6,3 +6,4 @@ class Tarefa {
         this.status = status
     }
 }
+module.exports = Tarefa;

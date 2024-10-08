@@ -9,13 +9,13 @@ function CarregarTarefas(){
             tarefas.forEach(tarefa => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <th>${tarefa.id}</th>
-                    <td>${tarefa.titulo}</td>
-                    <td>${tarefa.descricao}</td>
-                    <td>${tarefa.status}</td>
+                    <th class="id">${tarefa.id}</th>
+                    <td class="titulo">${tarefa.titulo}</td>
+                    <td class="descricao">${tarefa.descricao}</td>
+                    <td class="status">${tarefa.status}</td>
                     <td>
-                        <button class="btn btn-primary" onclick="editarProduto(${tarefa.id})" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger" onclick="removerProduto(${tarefa.id})" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        <a class="btn btn-primary" onclick="editarTarefa(${tarefa.id})" title="Editar"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-danger" onclick="removerTarefa(${tarefa.id})" title="Excluir"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 `;
                 tabela.appendChild(tr);
@@ -28,7 +28,7 @@ function CadastrarAtualizarTarefa() {
     const titulo = document.querySelector('input[name="titulo"]').value;
     const descricao = document.querySelector('textarea[name="descricao"]').value;
     const status = document.querySelector('select[name="status"]').value;
-    const id = null
+    const id = document.querySelector('input[type="hidden"][name="id"]').value;
     if (!titulo || !descricao || !status) {
         alert('Por favor, preencha todos os campos corretamente.');
         return;
@@ -45,9 +45,36 @@ function CadastrarAtualizarTarefa() {
     })
     .then(response => response.json())
     .then(() => {
-        CarregarTarefas();
+        window.location.href = './index.html';
     })
     .catch(error => console.error('Erro ao salvar tarefa:', error));
+}
+
+function editarTarefa(id) {
+    var method = 'GET';
+    var url = apiUrl + '/editar/' + id;
+    fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then((tarefa) => {
+        localStorage.setItem('tarefaParaEditar', JSON.stringify(tarefa));
+        window.location.href = './editar.html';
+    })
+    .catch(error => console.error('Erro ao salvar tarefa:', error));
+}
+
+function removerTarefa(id) {
+    if (confirm('Tem certeza que deseja excluir essa tarefa?')) {
+        fetch(`${apiUrl}/${id}`, {
+            method: 'DELETE'
+        })
+        .then(() => window.location.href='./index.html')
+        .catch(error => console.error('Erro ao remover tarefa:', error));
+    }
 }
 
 document.addEventListener('DOMContentLoaded', CarregarTarefas);
