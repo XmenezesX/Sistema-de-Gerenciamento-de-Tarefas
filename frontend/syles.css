@@ -1,0 +1,28 @@
+:root {
+    --header-footer-color: #0a223c;
+    --font-selected-color: #75f695;
+    --bg-color: #1d1d1d;
+    --card-bg-color: #26303a;
+    --bg-color-secondary: #d1d1d1;
+    --primary-color: #343a40;
+    --secondary-color: #000000;
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #89e683;
+    --selected-color: #157347;
+    --selected-color-hover: #1573474a;
+    --background-input: #1d1d1d4a;
+    --color-input: #ffffff;
+    --link-color: #ffffff;
+    --link-hover-color: gray;
+    --text-muted-color: #6c757d;
+    --red: #Ff0000;
+  }
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+button{
+    border-style: none;
+}
