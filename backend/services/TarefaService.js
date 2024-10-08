@@ -2,8 +2,8 @@ const TarefaDAO = require('../persistence/tarefaDAO');
 const Tarefa = require('../models/tarefa');
 
 class TarefaService {
-    static async CadastrarTarefa(titulo, descricao,) {
-        const tarefa = new Tarefa(null, titulo, descricao, null);
+    static async CadastrarTarefa(titulo, descricao, status) {
+        const tarefa = new Tarefa(null, titulo, descricao, status);
         return await TarefaDAO.Cadastrar(tarefa);
     }
 

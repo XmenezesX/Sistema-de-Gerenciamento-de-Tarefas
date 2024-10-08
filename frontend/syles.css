@@ -23,7 +23,7 @@ body{
     padding: 0px;
 }
 
-input{
+input, select{
     width: 100%;
     border-radius: 8px;
     border-style: solid;

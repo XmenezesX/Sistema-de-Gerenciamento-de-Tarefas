@@ -48,6 +48,13 @@
                         <label for="titulo">Titulo:</label>
                         <input name="titulo" placeholder="Titulo da tarefa" type="text">
                     </div>
+                    <div class="col-md-6">
+                        <label for="status">Status:</label>
+                        <select name="status" id="">
+                            <option value="Pendente">Pendente</option>
+                            <option value="Concluida">Concluida</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -58,11 +65,11 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-primary">Cadastrar</button>
+              <button type="button" onclick="CadastrarAtualizarTarefa()" class="btn btn-primary">Cadastrar</button>
             </div>
           </div>
         </div>
       </div>
-<scrip src="./script.js"></scrip>
+<script src="./script.js"></script>
 </body>
 </html>

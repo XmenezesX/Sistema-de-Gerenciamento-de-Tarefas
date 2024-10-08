@@ -4,8 +4,8 @@ const Tarefa = require('../models/tarefa');
 class TarefaDAO {
     static Cadastrar(tarefa){
         return new Promise((resolve, reject) => {
-            const query = 'INSERT INTO tarefas (titulo, descricao) VALUES (?, ?)';
-            db.run(query, [tarefa.titulo, tarefa.descricao], function (err) {
+            const query = 'INSERT INTO tarefas (titulo, descricao, status) VALUES (?, ?, ?)';
+            db.run(query, [tarefa.titulo, tarefa.descricao, tarefa.status], function (err) {
                 if (err) reject(err);
                 else {
                     tarefa.id = this.lastID;

@@ -4,8 +4,9 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     try {
-        const { titulo, descricao } = req.body;
-        const tarefa = await TarefaService.CadastrarTarefa(titulo, descricao);
+        
+        const { titulo, descricao, status } = req.body;
+        const tarefa = await TarefaService.CadastrarTarefa(titulo, descricao, status);
         res.status(201).json(tarefa);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -14,8 +15,8 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const produtos = await TarefaService.ListarTarefas();
-        res.json(produtos);
+        const tarefas = await TarefaService.ListarTarefas();
+        res.json(tarefas);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
